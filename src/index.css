@@ -1,0 +1,59 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ================= THEME TOKENS ================= */
+@theme inline {
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+}
+
+/* ================= LIGHT ================= */
+:root {
+  --background: oklch(0.98 0.01 270);
+  --foreground: oklch(0.18 0.02 270);
+
+  --card: oklch(1 0 0);
+  --muted: oklch(0.95 0.01 270);
+
+  --primary: oklch(0.65 0.25 275);
+  --primary-foreground: oklch(1 0 0);
+
+  --border: oklch(0.9 0.02 270);
+}
+
+/* ================= DARK ================= */
+.dark {
+  --background: oklch(0.15 0.02 270);
+  --foreground: oklch(0.98 0.01 270);
+
+  --card: oklch(0.2 0.03 270);
+  --muted: oklch(0.25 0.03 270);
+
+  --primary: oklch(0.7 0.28 275);
+  --primary-foreground: oklch(0.1 0.02 270);
+
+  --border: oklch(0.3 0.04 270);
+}
+
+/* ================= BASE ================= */
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
